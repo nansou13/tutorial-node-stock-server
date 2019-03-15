@@ -1,0 +1,176 @@
+{
+  "examples": [{
+      "id": "1",
+      "name": "Example Name 1"
+    },
+    {
+      "id": "2",
+      "name": "Example Name 2"
+    }
+  ],
+  "practitioners": [{
+      "id": "2944f442-9fd6-11e8-98d0-529269fb1459",
+      "avatar": "https://pbs.twimg.com/profile_images/974736784906248192/gPZwCbdS.jpg",
+      "firstname": "François",
+      "lastname": "Meunier",
+      "specialities": [{
+          "id": "1122DD",
+          "name": "Psychiatre",
+          "main": false
+        },
+        {
+          "id": "1122EED",
+          "name": "Médecin généraliste",
+          "main": true
+        }
+      ]
+    },
+    {
+      "id": "2944f7ee-9fd6-11e8-98d0-529269fb1459",
+      "avatar": "https://pbs.twimg.com/profile_images/974736784906248192/gPZwCbdS.jpg",
+      "firstname": "Albert",
+      "lastname": "Mullert",
+      "specialities": [{
+          "id": "1122DD",
+          "name": "Psychiatre",
+          "main": false
+        },
+        {
+          "id": "1122EED",
+          "name": "Médecin généraliste",
+          "main": true
+        }
+      ]
+    },
+    {
+      "id": "2944fa14-9fd6-11e8-98d0-529269fb1459",
+      "avatar": "https://pbs.twimg.com/profile_images/974736784906248192/gPZwCbdS.jpg",
+      "firstname": "Albert",
+      "lastname": "Mullenweg",
+      "specialities": [{
+        "id": "1142EED",
+        "name": "Pédiatre",
+        "main": true
+      }]
+    },
+    {
+      "id": "2944fcda-9fd6-11e8-98d0-529269fb1459",
+      "avatar": "https://pbs.twimg.com/profile_images/974736784906248192/gPZwCbdS.jpg",
+      "firstname": "Françoise",
+      "lastname": "Goute",
+      "specialities": [{
+          "id": "1122DD",
+          "name": "Psychiatre",
+          "main": true
+        },
+        {
+          "id": "1122EED",
+          "name": "Médecin généraliste",
+          "main": false
+        }
+      ]
+    },
+    {
+      "id": "2944ff14-9fd6-11e8-98d0-529269fb1459",
+      "avatar": "https://pbs.twimg.com/profile_images/974736784906248192/gPZwCbdS.jpg",
+      "firstname": "Hervé",
+      "lastname": "Bachot",
+      "specialities": [{
+          "id": "1122DD",
+          "name": "Psychiatre",
+          "main": false
+        },
+        {
+          "id": "1122EED",
+          "name": "Médecin généraliste",
+          "main": true
+        }
+      ]
+    }
+
+  ],
+  "users": {
+    "id": "dddddddd-0000-1111-aaaa-000000000001",
+    "firstname": "François",
+    "lastname": "Meunier",
+    "address": "375, avenue du mistral",
+    "phone": "0136325378",
+    "email": "meunier.francois@medecin.fr",
+    "zipcode": "13600",
+    "city": "LA CIOTAT",
+    "country": "France",
+    "adeli": "100012478077",
+    "description": "D’un naturel calme, j’aime être capable d’aider les personnes malades, Je pratique depuis plus de 30 ans en milieu urbain, je connais donc très bien les soucis que peuvent rencontrer les personnes ayant besoin de consulter rapidement.",
+    "mobile": "0636325378",
+    "rpps": "0021014329",
+    "conventions": "Généraliste conventionné secteur 1",
+    "securedEmail": "meunier.francois@sante.gouv.fr",
+    "specialities": [{
+        "id": "1122DD",
+        "name": "Psychiatre",
+        "main": false
+      },
+      {
+        "id": "1122EED",
+        "name": "Médecin généraliste",
+        "main": true
+      }
+    ],
+    "files": [{
+      "permalink": "http://hellocare.pro/path/to/file.pdf"
+    }]
+  },
+  "appointments": [
+    {
+    "id": "djehd2323239DJZEDZ",
+    "endAt": "02/08/2018 14:08",
+    "startAt": "02/08/2018 14:08",
+    "practitioner": {
+      "id": "aaaaaaaa-0000-1111-aaaa-000000000002",
+      "name": "Hervé Dubuit",
+      "specialities": "Médecin généraliste"
+    },
+    "patient": {
+      "id": "aaaaaaaa-0000-1111-aaaa-000000000042",
+      "name": "Louis Trivalta"
+    },
+    "message": "liste des symptômes de Erwan Earl pour Dr Marlow",
+    "status": null,
+    "statusHistory": []
+    },
+    {
+      "id": "djehd2323239DTZEDZ",
+      "endAt": "05/08/2018 14:08",
+      "startAt": "05/08/2018 14:08",
+      "practitioner": {
+        "id": "aaaaaaaa-0000-1114-aaaa-000000000002",
+        "name": "Hervé Dubuit",
+        "specialities": "Médecin généraliste"
+      },
+      "patient": {
+        "id": "aaaaaaaa-0000-1111-aaaa-000000000042",
+        "name": "Louis Trivalta"
+      },
+      "message": "liste des symptômes de Erwan Earl pour Dr Marlow 23",
+      "status": null,
+      "statusHistory": []
+      },
+      {
+        "id": "djehd23232322DTZEDZ",
+        "endAt": "09/08/2018 14:08",
+        "startAt": "09/08/2018 14:08",
+        "practitioner": {
+          "id": "aaaaaaaa-0000-1114-aaaa-000200000002",
+          "name": "Hervé Dubuit",
+          "specialities": "Médecin généraliste"
+        },
+        "patient": {
+          "id": "aaaaaaaa-0000-1111-aaaa-000000000042",
+          "name": "Louis Trivalta"
+        },
+        "message": "liste des symptômes de Erwan Earl pour Dr Marlow 3",
+        "status": null,
+        "statusHistory": []
+        }
+  ]
+}
