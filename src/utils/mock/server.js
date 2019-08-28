@@ -13,9 +13,7 @@ const db = low(adapter)
 
 const express = require('express')
 const cors = require('cors')
-const bodyParser = require('body-parser')
-const textParser = bodyParser.text()
-const jsonParser = bodyParser.json()
+const bodyParser = require('body-parser').json()
 
 const server = express()
 const whitelist = ['http://localhost:3000', 'http://localhost:3001']
@@ -32,8 +30,13 @@ server.get('/db', (req, res) => {
 })
 
 /* PRACTIONERS GET INFOS */
-server.get('/practitioners/me', (req, res) => {
+server.get('/me', (req, res) => {
   const users = db.get('users').value()
+  res.json(users)
+})
+
+server.get('/users', (req, res) => {
+  const users = db.get('practitioners').value()
   res.json(users)
 })
 /* PRACTIONERS UPDATE INFOS */
@@ -41,10 +44,6 @@ server.put('/practitioners/me', (req, res) => {
   res.send('')
 })
 
-/* /appointments UPDATE INFOS */
-server.post('/appointments', (req, res) => {
-  res.send('')
-})
 /* GET /me */
 server.get('/examples/:id', (req, res) => {
   const id = req.params.id
@@ -54,6 +53,28 @@ server.get('/examples/:id', (req, res) => {
     .value()
 
   res.json(data)
+})
+
+/* POST */
+server.post(`/user`, bodyParser, (req, res) => {
+  const {email, password} = req.body || {}
+ 
+  let users = {}
+  if(email && email === 'test@test.test'){
+    users ={
+      "status": "400 XXXxxxxx",
+      "error": "authentication failed"
+    }
+    res.status(400).json(users)
+  }else{
+    users = {
+      "status": [
+        "success"
+      ],
+      "token": "MzeeHwDvP6EUsssSztu5167nNNKPdZFmvvFDP437qWa1R1jkx25uYh7HXs0tr3f1"
+    }
+    res.json(users)
+  }
 })
 
 /* 404 */

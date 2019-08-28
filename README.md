@@ -51,7 +51,55 @@ Your app is ready to be deployed!
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 # Mock
+This homemade mock server is here to save the back team ass ! It's a simple [Express](https://expressjs.com/fr/guide/routing.html) server with a json for DB. You can do anything GET/PUT/POST/DELETE....
 
+To use it, `npm run start:mock` ou `npm run start:all`. By default open [http://localhost:3004/db](http://localhost:3004/db) to view it in the browser.
+
+#### DataBase 
+open `/src/utils/mock/db.js` to see all db values. It's a simple Json file
+#### Routes 
+open `/src/utils/mock/server.js` to see all routes. 
+> **GET simple exemple**  :
+~~~~ 
+server.get('/me', (req, res) => {
+	const  users  =  db.get('users').value()
+	res.json(users)
+}) 
+~~~~
+  
+> **GET with param exemple**  :
+~~~~ 
+server.get('/examples/:id', (req, res) => {
+	const  id = req.params.id
+	const  data = db
+		.get('examples')
+		.find({ id })
+		.value()
+
+	res.json(data)
+}) 
+~~~~
+
+> **POST exemple**  :
+~~~~ 
+server.post('/user', bodyParser, (req, res) => {
+	const {email, password} =  req.body  || {}
+	let  users  = {}
+	if(email  &&  email === 'test@test.test'){
+		users = {
+			"status":  "400 XXXxxxxx",
+			"error":  "authentication failed"
+		}	
+		res.status(400).json(users)
+	}else{
+		users  = {
+			"status": ["success"],
+			"token":  "MzeeHwDvP6EUsssSztu5167nNNKPdZFmvvFDP437qWa1R1jkx25uYh7HXs0tr3f1"
+		}
+		res.json(users)
+	}
+})
+~~~~
 
 # Testing 
 We use : 

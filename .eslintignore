@@ -8,6 +8,7 @@
 /tests
 /scripts
 /config
+/cypress
 
 # production
 /build

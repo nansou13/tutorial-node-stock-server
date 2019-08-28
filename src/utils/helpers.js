@@ -23,7 +23,7 @@ export const closestToZero = (values) => {
   if (!values) return 0
   return (
     values.reduce((closest, current) => {
-      if (!closest) return parseInt(current)
+      if (!closest) return parseInt(current, 2)
       if (current !== null) {
         if (current >= 0 && current <= Math.abs(closest)) return current
         if (current < 0 && Math.abs(current) < Math.abs(closest)) return current
