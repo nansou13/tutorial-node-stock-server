@@ -18,3 +18,17 @@ export const media = Object.keys(sizes).reduce((acc, label) => {
 
   return acc
 }, {})
+
+export const closestToZero = (values) => {
+  if (!values) return 0
+  return (
+    values.reduce((closest, current) => {
+      if (!closest) return parseInt(current)
+      if (current !== null) {
+        if (current >= 0 && current <= Math.abs(closest)) return current
+        if (current < 0 && Math.abs(current) < Math.abs(closest)) return current
+      }
+      return closest
+    }, null) || 0
+  )
+}

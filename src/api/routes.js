@@ -4,6 +4,7 @@ import configs from '../config'
 const { api, apiMock } = configs[process.env.REACT_APP_ENV_TYPE]
 
 const Common = {
+  getAll: () => requests.get(`https://jsonplaceholder.typicode.com/posts`),
   get: (id) => requests.get(`${api}/edito/pages/${id}`),
   newsletter: (email) =>
     requests.post(`${api}/newsletter-subscriptions/create`, {
