@@ -30,6 +30,9 @@ Run Jest in watch mode
 ### `npm run cypress`
 Run cypress. 
 
+### `npm run start:i18n`
+Extract all defined messages and create js lang file 
+
 ### `npm run start:preprod`
 >  **REACT_APP_ENV_TYPE = preprod**
 
@@ -108,11 +111,63 @@ We use :
 - [Enzyme](https://airbnb.io/enzyme/)
 - [Cypress](https://www.cypress.io/)
 
+# Internationalization
+To manage trads, we use [react-intl](https://github.com/formatjs/react-intl). 
+Run the script `npm run start:i18n` to generate json files each time you add or update texts
+### How to add languages :
+you have to update `./translationRunner.js` and update this : 
+~~~~
+manageTranslations({
+	messagesDirectory:  '.messages',
+	translationsDirectory:  'src/translations/l18n/',
+	// en is defaultLocale so no need to list en here
+	languages: ['fr'], <--- add code here
+})
+~~~~
+This script will create all json file by country. These files need to be translate and imported here `src/translations/i18n-locales.js` 
+
+### Define messages :
+First you have to define messages in the composant or in a separate file.
+~~~~
+import { defineMessages } from  'react-intl.macro'
+
+export  const  messages  =  defineMessages({
+	welcome: {
+		id:  'Component.welcome',
+		defaultMessage:  'Welcome to React',
+		description:  'title',
+	},
+})
+~~~~
+To display it, 2 ways : 
+**FormattedMessage** :  
+~~~~
+import  FormattedMessage  from  'components/FormattedMessage'
+import { messages } from  './messages'
+
+<h1>
+	<FormattedMessage  {...messages.welcome}  />
+</h1>
+~~~~
+**injectIntl** :
+~~~~
+import { injectIntl } from 'react-intl'
+import { messages } from  './messages'
+
+const  App  = (props) => (
+	<h1>
+		{props.intl.formatMessage(messages.welcome)}
+	</h1>
+)
+
+export default injectIntl(App)
+~~~~
+
 # Libraries
 
 ## React
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To learn React, check out the [React documentation](https://reactjs.org/). 
 
 ## Redux
 
