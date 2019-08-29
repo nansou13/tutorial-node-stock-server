@@ -7,6 +7,8 @@
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-intl": "^3.1.13",
+    "react-intl.macro": "^0.3.7",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.1",
@@ -29,7 +31,10 @@
     "lint:staged": "lint-staged",
     "start:mock": "node src/utils/mock/server.js",
     "start:all": "run-p start:mock start",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "i18n:extract": "MESSAGE_DIR='./.messages' react-scripts build",
+    "i18n:manageTranslations": "node ./translationRunner.js",
+    "start:i18n": "npm run i18n:extract && npm run i18n:manageTranslations"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -82,6 +87,7 @@
       "react-app"
     ],
     "plugins": [
+      "macros",
       [
         "styled-components",
         {
@@ -100,6 +106,7 @@
     "babel-eslint": "10.0.2",
     "babel-jest": "24.9.0",
     "babel-loader": "^8.0.6",
+    "babel-plugin-macros": "^2.6.1",
     "chai": "^4.2.0",
     "chai-enzyme": "^1.0.0-beta.1",
     "chai-jest-diff": "^1.0.2",
@@ -132,6 +139,7 @@
     "pre-commit": "^1.2.2",
     "prettier": "^1.18.2",
     "promise": "^8.0.3",
+    "react-intl-translations-manager": "^5.0.3",
     "react-test-renderer": "^16.9.0",
     "redux-devtools": "^3.5.0",
     "sinon-chai": "^3.3.0"

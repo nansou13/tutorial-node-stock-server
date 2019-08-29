@@ -11,6 +11,7 @@ test-results-for-storybook.json
 
 # production
 /build
+/.messages
 
 # misc
 .DS_Store

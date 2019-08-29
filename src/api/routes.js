@@ -1,7 +1,7 @@
 import { requests } from './index'
 import configs from '../config'
 
-const { api, apiMock } = configs[process.env.REACT_APP_ENV_TYPE]
+const { api, apiMock } = configs
 
 const Common = {
   getAll: () => requests.get(`https://jsonplaceholder.typicode.com/posts`),
