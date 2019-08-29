@@ -6,7 +6,19 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 > prévoir de la doc par lib, des branches en fonction de la complexité du projet. (redux vs context/ saga ou non / etc...) ou un tuto d'installation de la lib.
 
 Before all git commit we have a **pre-commit** lint:staged. 
-  
+
+# Menu
+- [Available Scripts](#available-scripts)
+- [Mock](#mock)
+-- [Data base](#database)
+-- [Routing](#routes)
+- [Testing](#testing)
+- [Internationalization](#internationalization)
+-- [How to add languages](#how-to-add-languages)
+-- [Define messages](#define-messages)
+- [Libraries](#libraries)
+-- [React](#react)
+-- [Redux](#redux)
 # Available Scripts
 
 ### `npm start`
@@ -182,3 +194,8 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 
 [ ] Traduction (i18n? intl ? ...)
+
+| Plugin | README |
+| ------ | ------ |
+| Dropbox | [plugins/dropbox/README.md]() |
+| GitHub | [plugins/github/README.md]() |
