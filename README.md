@@ -153,6 +153,7 @@ export  const  messages  =  defineMessages({
 ~~~~
 To display it, 2 ways : 
 **FormattedMessage** :  
+here with use a component to fix this [issue](https://github.com/formatjs/babel-plugin-react-intl/issues/119)
 ~~~~
 import  FormattedMessage  from  'components/FormattedMessage'
 import { messages } from  './messages'
