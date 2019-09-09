@@ -19,6 +19,7 @@ Before all git commit we have a **pre-commit** lint:staged.
 - [Libraries](#libraries)
 -- [React](#react)
 -- [Redux](#redux)
+- [Good Practice](#good-practice)
 # Available Scripts
 
 ### `npm start`
@@ -185,7 +186,27 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ## Redux
 
 
-  
+# Good Practices
+
+These are some of the good practices we tend to follow and some recommandation to go with it
+
+## Index as key is an anti-pattern
+When you first start to use react, you'll quickly start to map over an array to generate some components from your state. React will issue a warning stating that each component in the list should have a unique identifier. The easy (and wrong) solution is to use the `index` of your map function to give an id to each key. You can find a post [here](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318) explaining all of this in greater details.
+
+We chose a simple solution, this boilerplate include a small utility called `shortid`. When you map over an array that doesn't have unique ids that could be used as key. Simply import the library and generate a random id like so : 
+
+```
+import shortid from 'shortid'
+
+// Your component code…
+
+render(){
+	return(
+		<div>{array.map(a => <MyComponent key={shortid.generate()} />)}</div>
+	)
+}
+
+```
 
 # TODO
 
