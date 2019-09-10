@@ -21,6 +21,7 @@ Before all git commit we have a **pre-commit** lint:staged.
 -- [Redux](#redux)
 - [Good Practice](#good-practice)
 # Available Scripts
+_For consistency please only use `npm` to install libraries. If you think `yarn`is better let's discuss this, but for now we need to pick one and it's `npm`_
 
 ### `npm start`
 >  **REACT_APP_ENV_TYPE = development**
