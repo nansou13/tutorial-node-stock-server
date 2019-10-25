@@ -12,8 +12,8 @@ function WithLoading(Component) {
     return (
       <SCLoading>
         {isLoading && <LoaderElement />}
-        {forced && !isLoading && <Component {...props} />}
-        {!forced && <Component {...props} />}
+        {forced && isLoading && <Component {...props} />}
+        {!forced && !isLoading && <Component {...props} />}
       </SCLoading>
     )
   }

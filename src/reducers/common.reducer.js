@@ -3,7 +3,7 @@ import { APP_LOAD, SAVE_DATA } from '../actions/global.action'
 const DEFAULT_VALUES = {
   loaded: false,
   siteName: 'React-Redux-Boilerplate',
-  data: [],
+  data: null,
 }
 
 export default function common(state = DEFAULT_VALUES, action) {

@@ -108,23 +108,23 @@ export const SCCircles = styled('span')`
   margin-bottom: 16px;
 
   span:nth-of-type(1) {
-    background: ${(props) => props.theme.green.medium};
+    background-color: #3b9e3b;
     animation: ${pulse} 1.2s ease-in-out infinite;
   }
   span:nth-of-type(2) {
-    background: ${(props) => props.theme.green.dark};
+    background-color: #168138;
     animation: ${pulse2} 1.2s ease-in-out infinite 0.2s;
   }
   span:nth-of-type(3) {
-    background: ${(props) => props.theme.green.darkest};
+    background-color: #145a2f;
     animation: ${pulse3} 1.2s ease-in-out infinite 0.4s;
   }
   span:nth-of-type(4) {
-    background: ${(props) => props.theme.green.mediumAlt};
+    background-color: #139a8e;
     animation: ${pulse4} 1.2s ease-in-out infinite 0.6s;
   }
   span:nth-of-type(5) {
-    background: ${(props) => props.theme.blue.light};
+    background-color: #8fd0ea;
     animation: ${pulse5} 1.2s ease-in-out infinite 0.8s;
   }
 `
@@ -137,8 +137,8 @@ export const SCCircle = styled('span')`
 `
 
 export const SCText = styled('span')`
-  color: ${(props) => props.theme.blue.mediumDark};
-  font-family: ${(props) => props.theme.fontFamily.titles};
+  color: #05396b;
+  font-family: 'Playfair Display', sans-serif;
   font-size: 30px;
   line-height: 58px;
   text-align: center;

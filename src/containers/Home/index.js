@@ -4,9 +4,21 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { appLoad } from 'actions/global.action'
 import api from 'api'
+import WithLoading from 'hoc/WithLoading'
+
+const ShowDataWithLoading = WithLoading((props) => <ShowData {...props} />)
+const ShowData = ({ values, start, nb }) => (
+  <div style={{ marginTop: 30 }}>
+    <ul>
+      {values && values.length > 0
+        ? values.slice(start, nb).map(({ title, id }) => <li key={id}>{title}</li>)
+        : 'Aucun resultat...'}
+    </ul>
+  </div>
+)
 
 const Home = ({ name, appLoadDispatch, datas }) => {
-  const [data, setData] = useState([])
+  const [data, setData] = useState(null)
 
   useEffect(() => {
     async function fetchData() {
@@ -20,21 +32,13 @@ const Home = ({ name, appLoadDispatch, datas }) => {
   return (
     <Main>
       <h1>{name}</h1>
-      <div style={{ marginTop: 30 }}>
-        <ul>
-          {data && data.length > 0
-            ? data.slice(0, 5).map(({ title, id }) => <li key={id}>{title}</li>)
-            : 'Aucun resultat...'}
-        </ul>
+      <div style={{ width: 350 }}>
+        <ShowDataWithLoading isLoading={!data} values={data} start={0} nb={5} />
       </div>
 
       <h1>Saga-redux</h1>
-      <div style={{ marginTop: 30 }}>
-        <ul>
-          {datas && datas.length > 0
-            ? datas.slice(5, 18).map(({ title, id }) => <li key={id}>{title}</li>)
-            : 'Aucun resultat...'}
-        </ul>
+      <div style={{ width: 350 }}>
+        <ShowDataWithLoading isLoading={!datas} values={datas} start={5} nb={15} />
       </div>
     </Main>
   )
