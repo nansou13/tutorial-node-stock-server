@@ -32,3 +32,7 @@ export const closestToZero = (values) => {
     }, null) || 0
   )
 }
+
+export const removeLocalStorage = () => {
+  localStorage.removeItem('access_token')
+}

@@ -1,13 +1,9 @@
 import { Main } from 'components/Layout'
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { appLoad } from 'actions/global.action'
-import injectSaga from 'utils/injectSaga'
 import api from 'api'
-
-import saga from './saga'
 
 const Home = ({ name, appLoadDispatch, datas }) => {
   const [data, setData] = useState([])
@@ -66,9 +62,4 @@ const withConnect = connect(
   mapDispatchToProps
 )
 
-const withSaga = injectSaga({ key: 'AppPage', saga })
-
-export default compose(
-  withConnect,
-  withSaga
-)(Home)
+export default withConnect(Home)
