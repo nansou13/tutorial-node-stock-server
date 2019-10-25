@@ -1,3 +1,7 @@
+export const RESTART_ON_REMOUNT = '@@saga-injector/restart-on-remount'
+export const DAEMON = '@@saga-injector/daemon'
+export const ONCE_TILL_UNMOUNT = '@@saga-injector/once-till-unmount'
+
 export const META_TITLE = 'Title boilerplate'
 
 export const loremIpsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sem sem, feugiat ac auctor eu, facilisis venenatis dolor. Maecenas et quam sed leo accumsan molestie nec eu turpis. Donec id tempus orci. Duis vel augue tortor. Cras imperdiet est vitae ex varius, dapibus hendrerit ante dignissim. Aliquam vulputate mollis mattis. Sed elit felis, tincidunt placerat libero ac, pellentesque rhoncus quam. Duis consectetur, est sed consequat sodales, turpis erat pretium lacus, sed efficitur eros nibh vitae dui. Nam volutpat tincidunt felis, eu gravida ante fermentum eu.

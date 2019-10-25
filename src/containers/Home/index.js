@@ -1,12 +1,15 @@
 import { Main } from 'components/Layout'
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-
+import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { appLoad } from 'actions/global.action'
+import injectSaga from 'utils/injectSaga'
 import api from 'api'
 
-const Home = ({ name, appLoadDispatch }) => {
+import saga from './saga'
+
+const Home = ({ name, appLoadDispatch, datas }) => {
   const [data, setData] = useState([])
 
   useEffect(() => {
@@ -24,7 +27,16 @@ const Home = ({ name, appLoadDispatch }) => {
       <div style={{ marginTop: 30 }}>
         <ul>
           {data && data.length > 0
-            ? data.map(({ title, id }) => <li key={id}>{title}</li>)
+            ? data.slice(0, 5).map(({ title, id }) => <li key={id}>{title}</li>)
+            : 'Aucun resultat...'}
+        </ul>
+      </div>
+
+      <h1>Saga-redux</h1>
+      <div style={{ marginTop: 30 }}>
+        <ul>
+          {datas && datas.length > 0
+            ? datas.slice(5, 18).map(({ title, id }) => <li key={id}>{title}</li>)
             : 'Aucun resultat...'}
         </ul>
       </div>
@@ -35,10 +47,12 @@ const Home = ({ name, appLoadDispatch }) => {
 Home.propTypes = {
   name: PropTypes.string,
   appLoadDispatch: PropTypes.func,
+  datas: PropTypes.array,
 }
 
 const mapStateToProps = (state) => ({
   name: state.common.siteName,
+  datas: state.common.data,
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -52,4 +66,9 @@ const withConnect = connect(
   mapDispatchToProps
 )
 
-export default withConnect(Home)
+const withSaga = injectSaga({ key: 'AppPage', saga })
+
+export default compose(
+  withConnect,
+  withSaga
+)(Home)

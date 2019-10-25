@@ -3,13 +3,16 @@
  */
 
 import { createStore, applyMiddleware, compose } from 'redux'
+import createSagaMiddleware from 'redux-saga'
 import createReducer from 'reducers/index'
+
+const sagaMiddleware = createSagaMiddleware()
 
 export default function configureStore(initialState = {}) {
   // Create the store with two middlewares
   // 1. sagaMiddleware: Makes redux-sagas work
   // 2. routerMiddleware: Syncs the location/URL path to the state
-  const middlewares = []
+  const middlewares = [sagaMiddleware]
 
   const enhancers = [applyMiddleware(...middlewares)]
 
@@ -32,6 +35,8 @@ export default function configureStore(initialState = {}) {
 
   // Extensions
   store.injectedReducers = {} // Reducer registry
+  store.runSaga = sagaMiddleware.run
+  store.injectedSagas = {} // Saga registry
 
   // Make reducers hot reloadable, see http://mxs.is/googmo
   /* istanbul ignore next */
