@@ -1,29 +1,8 @@
 import axios from 'axios'
 
-// axios.defaults.withCredentials = true;
-
 const responseBody = (res) => res
-const responseError = (error) => {
-  let errorMessage = 'Error: Network Error'
-  if (error.response) {
-    if (error.response.status === 401 || error.response.status === 403) {
-      console.log('401 / 403')
-    }
-    if (error.response.data && error.response.data.error_message) {
-      errorMessage = manageErrorMessage(error.response.data.error_message)
-    } else if (
-      error.response.data &&
-      error.response.data.errors &&
-      error.response.data.errors.message
-    ) {
-      errorMessage = manageErrorMessage(error.response.data.errors.message)
-    }
-  }
-  return errorMessage
-}
-
-const manageErrorMessage = (error) => {
-  const errorMessage = typeof error === 'object' ? Object.values(error)[0] : error
+const responseError = () => {
+  const errorMessage = 'Error: Network Error'
   return errorMessage
 }
 

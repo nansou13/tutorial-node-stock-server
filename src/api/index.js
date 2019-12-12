@@ -1,16 +1,8 @@
 import { requests } from './request'
-import configs from '../config'
-
-const { api, apiMock } = configs
 
 const Common = {
-  getAll: () => requests.get(`https://jsonplaceholder.typicode.com/posts`),
-  get: (id) => requests.get(`${api}/edito/pages/${id}`),
-  newsletter: (email) =>
-    requests.post(`${api}/newsletter-subscriptions/create`, {
-      email,
-    }),
-  contact: (form) => requests.post(`${apiMock}/contact-request`, form),
+  getFirstElements: () => requests.get(`http://localhost:8008/?count=20`),
+  getLast: () => requests.get(`http://localhost:8008/?count=1`),
 }
 
 export default {

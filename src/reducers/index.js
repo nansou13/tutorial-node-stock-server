@@ -4,7 +4,6 @@
 
 import { combineReducers } from 'redux'
 import common from './common.reducer'
-import user from './user.reducer'
 
 /**
  * Creates the main reducer with the dynamically injected ones
@@ -12,7 +11,6 @@ import user from './user.reducer'
 export default function createReducer(injectedReducers) {
   return combineReducers({
     common,
-    user,
     ...injectedReducers,
   })
 }

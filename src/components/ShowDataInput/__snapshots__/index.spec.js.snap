@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ShowInput /> should render appropriately 1`] = `
+Array [
+  <td>
+    CAC40
+  </td>,
+  <td>
+    <input
+      onBlur={[MockFunction]}
+      onChange={[Function]}
+      onFocus={[MockFunction]}
+      style={
+        Object {
+          "width": 55,
+        }
+      }
+      type="number"
+      value="145.293302630023"
+    />
+  </td>,
+  <td>
+    <input
+      onBlur={[MockFunction]}
+      onChange={[Function]}
+      onFocus={[MockFunction]}
+      style={
+        Object {
+          "width": 55,
+        }
+      }
+      type="number"
+      value="90.40672503192006"
+    />
+  </td>,
+  <td>
+    <input
+      onBlur={[MockFunction]}
+      onChange={[Function]}
+      onFocus={[MockFunction]}
+      style={
+        Object {
+          "width": 55,
+        }
+      }
+      type="number"
+      value="90.39017756930647"
+    />
+  </td>,
+]
+`;

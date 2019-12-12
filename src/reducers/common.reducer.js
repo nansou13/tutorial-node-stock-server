@@ -1,9 +1,14 @@
-import { APP_LOAD, SAVE_DATA } from '../actions/global.action'
+import {
+  APP_LOAD,
+  SAVE_DATA,
+  UPDATE_DATA,
+  PAUSE_FOR_EDITION,
+  RESUME,
+} from '../actions/global.action'
 
 const DEFAULT_VALUES = {
-  loaded: false,
-  siteName: 'React-Redux-Boilerplate',
   data: null,
+  isEditing: false,
 }
 
 export default function common(state = DEFAULT_VALUES, action) {
@@ -11,9 +16,49 @@ export default function common(state = DEFAULT_VALUES, action) {
 
   switch (type) {
     case APP_LOAD:
-      return { ...state, loaded: true, siteName: payload.value || 'React-Redux-Boilerplate' }
+      return {
+        ...state,
+        data: payload.values.map((value) => ({
+          ...value,
+          stocks: {
+            ...value.stocks,
+            CAC40: Math.round(value.stocks.CAC40 * 100) / 100,
+            NASDAQ: Math.round(value.stocks.NASDAQ * 100),
+          },
+        })),
+      }
+    case PAUSE_FOR_EDITION:
+      return { ...state, isEditing: true }
+    case RESUME:
+      return { ...state, isEditing: false }
+    case UPDATE_DATA:
+      if (payload.value) {
+        const newData = state.data.map((value) =>
+          value.index === payload.id
+            ? // eslint-disable-next-line radix
+              { ...value, stocks: { ...value.stocks, [payload.type]: parseFloat(payload.value) } }
+            : value
+        )
+        return { ...state, data: newData }
+      }
+      return state
+
     case SAVE_DATA:
-      return { ...state, data: payload.value }
+      return {
+        ...state,
+        data: [
+          ...state.data,
+          {
+            ...payload.value,
+            stocks: {
+              ...payload.value.stocks,
+              CAC40: Math.round(payload.value.stocks.CAC40 * 100) / 100,
+              NASDAQ: Math.round(payload.value.stocks.NASDAQ * 100),
+            },
+          },
+        ],
+      }
+
     default:
       return state
   }
